@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 30px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  background: #f5f6f8;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.menu-icon {
+  position: absolute;
+  left: 0;
+  font-size: 20px;
+  top: 10px;
+}
+
+header h2 {
+  color: #1f2b6c;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  font-size: 13px;
+  color: #5a5a5a;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.course-title {
+  font-weight: 700;
+  color: #122b7a;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  display: flex;
+  height: 8px;
+  width: 100%;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress.core {
+  width: 50%;
+  background: #44d37e;
+}
+
+.progress.elective {
+  width: 30%;
+  background: #e6c275;
+}
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.icon {
+  margin-right: 4px;
+}
+
+.details {
+  font-size: 13px;
+  color: #222;
+  line-height: 1.5;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.save-btn,
+.edit-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.save-btn {
+  background: #1f2b6c;
+  margin-right: 10px;
+}
+
+.edit-btn {
+  background: #f5a623;
+  text-decoration: none; 
+  text-align: center;
+}
+
+.save-btn:hover,
+.edit-btn:hover {
+  opacity: 0.9;
+}
+
+
+
+
+/* المربع الرئيسي في النص */
+.app-container {
+  width: 420px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: #eef3ff;
+  position: relative; /* مهم جدًا عشان الـ sidebar تبقى جواه */
+  overflow: hidden;   /* عشان المينيو متخرجش برا */
+  color: rgb(40, 40, 40);
+}
+
+/* الأيقونة */
+.menu-icon {
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  color: #0b2042;
+}
+
+/* القائمة الجانبية */
+.sidebar {
+  position: absolute; /* بدل fixed */
+  top: 0;
+  left: -250px; /* مخفية في الأول */
+  width: 250px;
+  height: 100%;
+  background-color: #0b2042;
+  color: white;
+  transition: 0.3s ease;
+  padding-top: 3rem;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+/* لما تتفتح */
+.sidebar.active {
+  left: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.sidebar li {
+  margin: 1rem 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.5rem;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #1c3b72;
+  border-radius: 8px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: flex-start;   /* ✅ اللوجو يطلع لأعلى */
+  justify-content: space-between;
+  padding: 1rem 1.2rem 0 1.2rem; /* padding علوي بسيط */
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.college-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-top: -5px;  /* ✅ يرفع اللوجو شوية فوق */
+}
+
+.close-btn {
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+}

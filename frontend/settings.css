@@ -1,0 +1,349 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+/* Phone-like fixed width */
+.phone-container {
+  width: 420px;
+  background-color: #f5f6f8;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  align-items: center;
+}
+
+/* Header */
+.header {
+  background-color: #0b2042;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem 2.2rem 1rem;
+  position: relative;
+}
+
+.header .menu-icon {
+  position: absolute;
+  left: 1rem;
+  top: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.header h1 {
+  font-size: 1.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Container */
+.container {
+  padding: 1.5rem;
+}
+
+/* Profile Card */
+.profile-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-3px);
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background-color: #ddd;
+  border-radius: 50%;
+}
+
+.info {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.info h2 {
+  font-size: 1.1rem;
+}
+
+.info .email {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.save-btn {
+  background-color: #ffdd6c;
+  color: #111;
+  border: none;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: #fcd53f;
+  transform: scale(1.05);
+}
+
+/* Details */
+.details {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  margin-top: 0.5rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background-color: #0b2042;
+}
+
+input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+/* Preferences Section */
+.preferences h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.semester {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 12px;
+  color: white;
+  min-height: 110px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Colors */
+.purple { background-color: #3366ff; }
+.yellow { background-color: #ffdd6c; color: #111; }
+.red { background-color: #ffdd6c; color: #111;}
+.blue { background-color: #3366ff; }
+.orange { background-color: #3366ff;  }
+.light-yellow { background-color: #ffdd6c; color: #111; }
+
+.footer-text {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.start-btn {
+  display: block;
+  margin: 1rem auto 1.5rem auto;
+  background-color: #3366ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.start-btn:hover {
+  background-color: #4a7aff;
+  transform: scale(1.05);
+}
+
+/* Responsive for small screens */
+@media (max-width: 450px) {
+  .phone-container {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+
+
+
+/* المربع الرئيسي في النص */
+.app-container {
+  width: 420px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: white;
+  position: relative; /* مهم جدًا عشان الـ sidebar تبقى جواه */
+  overflow: hidden;   /* عشان المينيو متخرجش برا */
+  color: rgb(40, 40, 40);
+}
+
+/* الأيقونة */
+.menu-icon {
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  color: white;
+}
+
+/* القائمة الجانبية */
+.sidebar {
+  position: absolute; /* بدل fixed */
+  top: 0;
+  left: -250px; /* مخفية في الأول */
+  width: 250px;
+  height: 100%;
+  background-color: #0b2042;
+  color: white;
+  transition: 0.3s ease;
+  padding-top: 3rem;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+/* لما تتفتح */
+.sidebar.active {
+  left: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.sidebar li {
+  margin: 1rem 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.5rem;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #1c3b72;
+  border-radius: 8px;
+}
+
+.profile-circle {
+  width: 40px;           /* حجم الصورة */
+  height: 40px;
+  border-radius: 50%;    /* تخليها دايرة */
+  object-fit: cover;     /* تخلي الصورة تتظبط جوه الدايرة */
+  border: 2px solid #ccc; /* خط بسيط حواليها (اختياري) */
+}
+
+/* رأس القائمة (اللوجو + زر الإغلاق) */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* اللوجو شمال، زر الإغلاق يمين */
+  padding: 1rem 1.2rem 0 1.2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* اللوجو */
+.college-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%; /* لو اللوجو دايرة */
+}
+
+/* زر الإغلاق */
+.close-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+}

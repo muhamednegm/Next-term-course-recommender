@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title> Login Page</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/x.icon" href="logo.jpg">
+</head>
+<body>
+  <main class="screen">
+    <section class="card">
+      <div class="logo" aria-hidden="true">
+        <img src="logo.jpg" alt="HIMIT Logo" class="logo">
+      </div>
+
+      <h1 class="title">Next-Term Course<br><span>Recommender</span></h1>
+
+      <!-- الفورم المعدل -->
+      <form class="login-form" id="loginForm">
+          <label class="input-row">
+              <span class="icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#5577b8" d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z"/></svg>
+              </span>
+              <input type="text" id="studentId" placeholder="University ID:" required>
+          </label>
+
+          <label class="input-row">
+              <span class="icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#5577b8" d="M17 8V7a5 5 0 0 0-10 0v1H5v12h14V8h-2zM9 7a3 3 0 0 1 6 0v1H9V7z"/></svg>
+              </span>
+              <input type="password" id="password" placeholder="password" required>
+          </label>
+
+          <button class="btn-login" type="submit">Login</button>
+      </form>
+
+      <script>
+document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const universityId = document.getElementById('studentId').value.trim();
+    const password = document.getElementById('password').value.trim();
+    
+    if (!universityId || !password) {
+        alert('❌ Please enter both University ID and password');
+        return;
+    }
+    
+    const loginBtn = document.querySelector('.btn-login');
+    const originalText = loginBtn.textContent;
+    loginBtn.textContent = 'Checking...';
+    loginBtn.disabled = true;
+    
+    try {
+        // استخدام university_id
+        const response = await fetch(
+            `http://localhost:8000/api/login?university_id=${universityId}&password=${password}`
+        );
+        const result = await response.json();
+        
+        console.log('Login result:', result);
+        
+        if (result.success) {
+            // حفظ البيانات
+            localStorage.setItem('student_id', universityId);
+            localStorage.setItem('student_name', result.student.name);
+            localStorage.setItem('student_major', result.student.major);
+            localStorage.setItem('student_gpa', result.student.gpa);
+            
+            // الانتقال
+            setTimeout(() => {
+                window.location.href = result.redirect;
+            }, 500);
+            
+        } else {
+            alert(result.message);
+            loginBtn.textContent = originalText;
+            loginBtn.disabled = false;
+        }
+        
+    } catch (error) {
+        alert('⚠️ Cannot connect to server. Make sure backend is running.');
+        console.error('Error:', error);
+        loginBtn.textContent = originalText;
+        loginBtn.disabled = false;
+    }
+});
+</script>
+ <!-- أضف بعد السكريبت الموجود -->
+<script>
+// تحقق من اتصال الخادم عند تحميل الصفحة
+window.addEventListener('load', function() {
+    fetch('http://localhost:8000/')
+        .then(response => response.json())
+        .then(data => {
+            console.log('✅ Server 1 (run.py) is running:', data.message);
+        })
+        .catch(error => {
+            console.warn('⚠️ Server 1 (run.py) not responding');
+        });
+    
+    fetch('http://localhost:8006/')
+        .then(response => response.json())
+        .then(data => {
+            console.log('✅ Server 2 (main.py) is running:', data.title);
+        })
+        .catch(error => {
+            console.warn('⚠️ Server 2 (main.py) not responding');
+        });
+});
+</script>
+      <a class="forgot" href="Forget.html">Forget Password?</a>
+      <div class="footer">© 2025 University Smart Systems<br>@Elshrif</div>
+    </section>
+  </main>
+</body>
+</html>

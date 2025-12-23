@@ -1,0 +1,91 @@
+course_id,course_code,course_name,credits,course_type,department_id,prerequisites,location,instructor,semester_offered,course_description,max_capacity,current_enrollment,is_active,created_at
+1,CS101,Programming Fundamentals,4,core,1,,N'Building A,Room 101',Dr. Ahmed Ali,1,Introduction to programming concepts using Python,40,0,1,2025-11-08T22:54:48.2666667
+2,CS102,Data Structures,4,core,1,CS101,N'Building A,Room 102',Dr. Mohamed Samy,2,Fundamental data structures and algorithms,35,0,1,2025-11-08T22:54:48.2666667
+3,CS103,Discrete Mathematics,4,core,1,,N'Building A,Room 103',Dr. Hassan Mohamed,1,Mathematical foundations for computer science,45,0,1,2025-11-08T22:54:48.2666667
+4,CS104,Computer Organization,4,core,1,CS101,N'Building A,Room 104',Dr. Rania Ahmed,3,Computer architecture and organization,40,0,1,2025-11-08T22:54:48.2666667
+5,CS105,Algorithms Analysis,4,core,1,CS102,N'Building A,Room 105',Dr. Omar Khaled,4,Design and analysis of algorithms,35,0,1,2025-11-08T22:54:48.2666667
+6,CS106,Operating Systems,4,core,1,CS104,N'Building A,Room 106',Dr. Nourhan Said,5,Operating system concepts and design,40,0,1,2025-11-08T22:54:48.2666667
+7,CS107,Database Systems,4,core,1,CS102,N'Building A,Room 107',Dr. Yara Mahmoud,3,Database design and SQL programming,40,0,1,2025-11-08T22:54:48.2666667
+8,CS108,Computer Networks,4,core,1,CS104,N'Building A,Room 108',Dr. Karim Hassan,4,Network protocols and architectures,35,0,1,2025-11-08T22:54:48.2666667
+9,CS109,Software Engineering,4,core,1,CS102,N'Building A,Room 109',Dr. Lamia Farouk,5,Software development methodologies,40,0,1,2025-11-08T22:54:48.2666667
+10,CS110,Web Development,4,core,1,CS101,N'Building A,Room 110',Dr. Amr Salah,3,Front-end and back-end web development,45,0,1,2025-11-08T22:54:48.2666667
+11,CS201,Artificial Intelligence,4,elective,1,CS105,N'Building B,Room 201',Dr. Hani Mostafa,6,AI concepts and machine learning basics,30,0,1,2025-11-08T22:54:48.2666667
+12,CS202,Machine Learning,4,elective,1,CS105,N'Building B,Room 202',Dr. Sherif Omar,6,Machine learning algorithms and applications,30,0,1,2025-11-08T22:54:48.2666667
+13,CS203,Data Mining,3,elective,1,CS107,N'Building B,Room 203',Dr. Dina Wael,7,Data mining techniques and tools,25,0,1,2025-11-08T22:54:48.2666667
+14,CS204,Computer Graphics,3,elective,1,CS102,N'Building B,Room 204',Dr. Tarek Mohamed,7,2D and 3D computer graphics,30,0,1,2025-11-08T22:54:48.2666667
+15,CS205,Parallel Computing,4,elective,1,CS106,N'Building B,Room 205',Dr. Nadia Ashraf,8,Parallel programming and architectures,25,0,1,2025-11-08T22:54:48.2666667
+16,CS206,Cloud Computing,4,elective,1,CS108,N'Building B,Room 206',Dr. Islam Gamal,8,Cloud services and deployment models,30,0,1,2025-11-08T22:54:48.2666667
+17,CS207,Mobile App Development,3,elective,1,CS110,N'Building B,Room 207',Dr. Mona Hisham,6,iOS and Android application development,35,0,1,2025-11-08T22:54:48.2666667
+18,CS208,Cyber Security,4,elective,1,CS108,N'Building B,Room 208',Dr. Khaled Samir,7,Security principles and practices,30,0,1,2025-11-08T22:54:48.2666667
+19,CS209,Natural Language Processing,4,elective,1,CS201,N'Building B,Room 209',Dr. Rana Magdy,8,NLP techniques and applications,25,0,1,2025-11-08T22:54:48.2666667
+20,CS210,Computer Vision,3,elective,1,CS202,N'Building B,Room 210',Dr. Ayman Reda,8,Image processing and computer vision,25,0,1,2025-11-08T22:54:48.2666667
+21,CS301,Advanced Algorithms,5,elective,1,CS105,N'Building C,Room 301',Dr. Samy George,7,Advanced algorithm design techniques,20,0,1,2025-11-08T22:54:48.2666667
+22,CS302,Distributed Systems,5,elective,1,CS106,N'Building C,Room 302',Dr. Marian Nabil,8,Distributed computing concepts,25,0,1,2025-11-08T22:54:48.2666667
+23,CS303,Big Data Analytics,3,elective,1,CS203,N'Building C,Room 303',Dr. Peter Mounir,8,Big data processing and analysis,20,0,1,2025-11-08T22:54:48.2666667
+24,CS304,IoT Systems,3,elective,1,CS108,N'Building C,Room 304',Dr. John Medhat,7,Internet of Things architectures,25,0,1,2025-11-08T22:54:48.2666667
+25,CS305,Blockchain Technology,5,elective,1,CS208,N'Building C,Room 305',Dr. Mark Nageeb,8,Blockchain principles and applications,20,0,1,2025-11-08T22:54:48.2666667
+26,CS306,Quantum Computing,5,elective,1,CS105,N'Building C,Room 306',Dr. Robert Fady,8,Quantum computing fundamentals,15,0,1,2025-11-08T22:54:48.2666667
+27,CS307,Game Development,3,elective,1,CS204,N'Building C,Room 307',Dr. George Makram,7,Game design and development,30,0,1,2025-11-08T22:54:48.2666667
+28,CS308,Robotics,5,elective,1,CS201,N'Building C,Room 308',Dr. Michael Sameh,8,Robotics programming and control,20,0,1,2025-11-08T22:54:48.2666667
+29,CS309,Bioinformatics,5,elective,1,CS105,N'Building C,Room 309',Dr. David Ashraf,8,Computational biology applications,25,0,1,2025-11-08T22:54:48.2666667
+30,CS310,Compiler Design,5,elective,1,CS102,N'Building C,Room 310',Dr. Joseph Mamdouh,7,Compiler construction and optimization,20,0,1,2025-11-08T22:54:48.2666667
+31,IS101,Introduction to Information Systems,4,core,2,,N'Building D,Room 101',Dr. Ahmed Hassan,1,Fundamentals of information systems,45,0,1,2025-11-08T22:54:48.2866667
+32,IS102,Business Analysis,4,core,2,IS101,N'Building D,Room 102',Dr. Mohamed Ibrahim,2,Business analysis techniques and tools,40,0,1,2025-11-08T22:54:48.2866667
+33,IS103,Database Management,4,core,2,IS101,N'Building D,Room 103',Dr. Hassan Kamal,3,Database design and management,40,0,1,2025-11-08T22:54:48.2866667
+34,IS104,Systems Analysis and Design,4,core,2,IS102,N'Building D,Room 104',Dr. Rania Mohamed,4,System development lifecycle,35,0,1,2025-11-08T22:54:48.2866667
+35,IS105,IT Project Management,4,core,2,IS104,N'Building D,Room 105',Dr. Omar Samy,5,Project management methodologies,40,0,1,2025-11-08T22:54:48.2866667
+36,IS106,Enterprise Architecture,4,core,2,IS104,N'Building D,Room 106',Dr. Nourhan Ali,6,Enterprise system architecture,35,0,1,2025-11-08T22:54:48.2866667
+37,IS107,Information Security,4,core,2,IS103,N'Building D,Room 107',Dr. Yara Said,4,Information security principles,40,0,1,2025-11-08T22:54:48.2866667
+38,IS108,Web Technologies,4,core,2,IS101,N'Building D,Room 108',Dr. Karim Magdy,3,Web development for business,45,0,1,2025-11-08T22:54:48.2866667
+39,IS109,Networking Fundamentals,4,core,2,IS101,N'Building D,Room 109',Dr. Lamia Reda,4,Business networking concepts,40,0,1,2025-11-08T22:54:48.2866667
+40,IS110,Business Intelligence,4,core,2,IS103,N'Building D,Room 110',Dr. Amr Wael,5,BI tools and analytics,35,0,1,2025-11-08T22:54:48.2866667
+41,IS201,E-Commerce Systems,4,elective,2,IS108,N'Building E,Room 201',Dr. Hani Mostafa,6,E-commerce platforms and strategies,30,0,1,2025-11-08T22:54:48.2866667
+42,IS202,Data Warehousing,4,elective,2,IS110,N'Building E,Room 202',Dr. Sherif Omar,7,Data warehouse design and implementation,25,0,1,2025-11-08T22:54:48.2866667
+43,IS203,Cloud Services,3,elective,2,IS109,N'Building E,Room 203',Dr. Dina Ashraf,7,Cloud services for business,30,0,1,2025-11-08T22:54:48.2866667
+44,IS204,IT Governance,3,elective,2,IS105,N'Building E,Room 204',Dr. Tarek Nabil,8,IT governance frameworks,25,0,1,2025-11-08T22:54:48.2866667
+45,IS205,Digital Transformation,4,elective,2,IS106,N'Building E,Room 205',Dr. Nadia Gamal,8,Digital business transformation,30,0,1,2025-11-08T22:54:48.2866667
+46,IS206,ERP Systems,4,elective,2,IS106,N'Building E,Room 206',Dr. Islam Hisham,7,Enterprise resource planning systems,25,0,1,2025-11-08T22:54:48.2866667
+47,IS207,Mobile Business Apps,4,elective,2,IS108,N'Building E,Room 207',Dr. Mona Samir,6,Mobile applications for business,35,0,1,2025-11-08T22:54:48.2866667
+48,IS208,Social Media Analytics,4,elective,2,IS110,N'Building E,Room 208',Dr. Khaled Magdy,7,Social media data analysis,30,0,1,2025-11-08T22:54:48.2866667
+49,IS209,IT Service Management,4,elective,2,IS105,N'Building E,Room 209',Dr. Rana Reda,8,ITIL and service management,25,0,1,2025-11-08T22:54:48.2866667
+50,IS210,Business Process Management,4,elective,2,IS104,N'Building E,Room 210',Dr. Ayman Mounir,7,Business process modeling,30,0,1,2025-11-08T22:54:48.2866667
+51,IS301,Strategic IT Management,5,elective,2,IS106,N'Building F,Room 301',Dr. Samy Nageeb,8,Strategic IT planning,20,0,1,2025-11-08T22:54:48.2866667
+52,IS302,Information Economics,3,elective,2,IS101,N'Building F,Room 302',Dr. Marian Fady,7,Economic aspects of information,25,0,1,2025-11-08T22:54:48.2866667
+53,IS303,Knowledge Management,5,elective,2,IS110,N'Building F,Room 303',Dr. Peter Makram,8,Knowledge management systems,20,0,1,2025-11-08T22:54:48.2866667
+54,IS304,IT Auditing,3,elective,2,IS107,N'Building F,Room 304',Dr. John Sameh,7,IT audit processes,25,0,1,2025-11-08T22:54:48.2866667
+55,IS305,Digital Marketing,3,elective,2,IS108,N'Building F,Room 305',Dr. Mark Mamdouh,6,Digital marketing strategies,35,0,1,2025-11-08T22:54:48.2866667
+56,IS306,Supply Chain Systems,5,elective,2,IS206,N'Building F,Room 306',Dr. Robert Hassan,8,Supply chain management systems,20,0,1,2025-11-08T22:54:48.2866667
+57,IS307,Healthcare Informatics,5,elective,2,IS103,N'Building F,Room 307',Dr. George Kamal,7,Healthcare information systems,25,0,1,2025-11-08T22:54:48.2866667
+58,IS308,Financial Systems,5,elective,2,IS103,N'Building F,Room 308',Dr. Michael Mohamed,8,Financial information systems,20,0,1,2025-11-08T22:54:48.2866667
+59,IS309,Decision Support Systems,3,elective,2,IS110,N'Building F,Room 309',Dr. David Ibrahim,7,DSS tools and techniques,25,0,1,2025-11-08T22:54:48.2866667
+60,IS310,Enterprise Mobility,5,elective,2,IS207,N'Building F,Room 310',Dr. Joseph Samy,8,Mobile enterprise solutions,20,0,1,2025-11-08T22:54:48.2866667
+61,SE101,Software Engineering Fundamentals,4,core,3,,N'Building G,Room 101',Dr. Ahmed Mohamed,1,Introduction to software engineering,45,0,1,2025-11-08T22:54:48.3066667
+62,SE102,Object-Oriented Programming,4,core,3,SE101,N'Building G,Room 102',Dr. Mohamed Ali,2,OOP principles and design patterns,40,0,1,2025-11-08T22:54:48.3066667
+63,SE103,Requirements Engineering,4,core,3,SE101,N'Building G,Room 103',Dr. Hassan Samy,3,Requirements gathering and analysis,35,0,1,2025-11-08T22:54:48.3066667
+64,SE104,Software Design,4,core,3,SE102,N'Building G,Room 104',Dr. Rania Hassan,4,Software design principles,40,0,1,2025-11-08T22:54:48.3066667
+65,SE105,Software Testing,4,core,3,SE104,N'Building G,Room 105',Dr. Omar Reda,5,Testing methodologies and tools,40,0,1,2025-11-08T22:54:48.3066667
+66,SE106,Software Architecture,4,core,3,SE104,N'Building G,Room 106',Dr. Nourhan Wael,6,Software architecture patterns,35,0,1,2025-11-08T22:54:48.3066667
+67,SE107,Agile Development,4,core,3,SE105,N'Building G,Room 107',Dr. Yara Ashraf,5,Agile methodologies and practices,40,0,1,2025-11-08T22:54:48.3066667
+68,SE108,Database Design,4,core,3,SE102,N'Building G,Room 108',Dr. Karim Nabil,3,Database design for software,40,0,1,2025-11-08T22:54:48.3066667
+69,SE109,Web Application Development,4,core,3,SE102,N'Building G,Room 109',Dr. Lamia Gamal,4,Full-stack web development,45,0,1,2025-11-08T22:54:48.3066667
+70,SE110,Mobile Development,4,core,3,SE102,N'Building G,Room 110',Dr. Amr Hisham,5,Mobile app development,40,0,1,2025-11-08T22:54:48.3066667
+71,SE201,DevOps Practices,4,elective,3,SE106,N'Building H,Room 201',Dr. Hani Samir,7,DevOps culture and tools,30,0,1,2025-11-08T22:54:48.3066667
+72,SE202,Cloud Native Development,4,elective,3,SE106,N'Building H,Room 202',Dr. Sherif Magdy,7,Cloud-native application development,25,0,1,2025-11-08T22:54:48.3066667
+73,SE203,Microservices Architecture,3,elective,3,SE106,N'Building H,Room 203',Dr. Dina Reda,8,Microservices design patterns,25,0,1,2025-11-08T22:54:48.3066667
+74,SE204,Software Security,4,elective,3,SE105,N'Building H,Room 204',Dr. Tarek Mounir,6,Secure software development,30,0,1,2025-11-08T22:54:48.3066667
+75,SE205,Performance Engineering,4,elective,3,SE106,N'Building H,Room 205',Dr. Nadia Nageeb,8,Software performance optimization,20,0,1,2025-11-08T22:54:48.3066667
+76,SE206,AI in Software Engineering,4,elective,3,SE104,N'Building H,Room 206',Dr. Islam Fady,7,AI applications in software engineering,25,0,1,2025-11-08T22:54:48.3066667
+77,SE207,Game Development,4,elective,3,SE102,N'Building H,Room 207',Dr. Mona Makram,6,Game design and development,35,0,1,2025-11-08T22:54:48.3066667
+78,SE208,Embedded Systems,3,elective,3,SE104,N'Building H,Room 208',Dr. Khaled Sameh,7,Embedded software development,25,0,1,2025-11-08T22:54:48.3066667
+79,SE209,UI/UX Design,4,elective,3,SE109,N'Building H,Room 209',Dr. Rana Mamdouh,5,User interface and experience design,40,0,1,2025-11-08T22:54:48.3066667
+80,SE210,Software Quality Assurance,4,elective,3,SE105,N'Building H,Room 210',Dr. Ayman Hassan,6,Quality assurance processes,35,0,1,2025-11-08T22:54:48.3066667
+81,SE301,Enterprise Software,5,elective,3,SE106,N'Building I,Room 301',Dr. Samy Kamal,8,Large-scale enterprise systems,20,0,1,2025-11-08T22:54:48.3066667
+82,SE302,Software Metrics,3,elective,3,SE105,N'Building I,Room 302',Dr. Marian Mohamed,7,Software measurement and metrics,25,0,1,2025-11-08T22:54:48.3066667
+83,SE303,Formal Methods,5,elective,3,SE104,N'Building I,Room 303',Dr. Peter Ibrahim,8,Formal verification techniques,15,0,1,2025-11-08T22:54:48.3066667
+84,SE304,Software Evolution,3,elective,3,SE106,N'Building I,Room 304',Dr. John Samy,7,Software maintenance and evolution,25,0,1,2025-11-08T22:54:48.3066667
+85,SE305,Open Source Development,3,elective,3,SE102,N'Building I,Room 305',Dr. Mark Ali,6,Open source contribution,30,0,1,2025-11-08T22:54:48.3066667
+86,SE306,Software Product Lines,5,elective,3,SE106,N'Building I,Room 306',Dr. Robert Hassan,8,Product line engineering,20,0,1,2025-11-08T22:54:48.3066667
+87,SE307,Real-Time Systems,5,elective,3,SE104,N'Building I,Room 307',Dr. George Reda,7,Real-time software development,25,0,1,2025-11-08T22:54:48.3066667
+88,SE308,Software Deployment,5,elective,3,SE201,N'Building I,Room 308',Dr. Michael Wael,8,Deployment strategies,20,0,1,2025-11-08T22:54:48.3066667
+89,SE309,Software Compliance,3,elective,3,SE105,N'Building I,Room 309',Dr. David Ashraf,7,Regulatory compliance,25,0,1,2025-11-08T22:54:48.3066667
+90,SE310,Emerging Technologies,5,elective,3,SE106,N'Building I,Room 310',Dr. Joseph Nabil,8,Latest trends in software engineering,20,0,1,2025-11-08T22:54:48.3066667

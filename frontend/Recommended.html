@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommended Courses</title>
+  <link rel="stylesheet" href="recommended.css">
+  <link rel="icon" type="image/x.icon" href="logo.jpg">
+
+</head>
+<body>
+  <script src="auth.js"></script>
+
+  <div class="app-container">
+
+  <!-- أيقونة المينيو -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <!-- القائمة الجانبية -->
+<nav class="sidebar" id="sidebar">
+
+<div class="sidebar-header">
+  <img src="logo.jpg" alt="College Logo" class="college-logo">
+  <div class="close-btn" onclick="toggleMenu()">✕</div>
+</div>
+
+
+  <ul>
+    <li><a href="performance.html">📈 Performance</a></li>
+    <li><a href="student.html">🎓 Student</a></li>
+    <li><a href="recommended.html">⭐ Recommended</a></li>
+    <li><a href="settings.html">⚙️ Settings</a></li>
+  </ul>
+</nav>
+
+
+
+
+  <div class="container">
+    <header>
+      <h2>Recommended Courses<br>for Next Term</h2>
+
+    </header>
+
+    <div class="card">
+      <h3>Course Name • Course Code</h3>
+      <p class="course-title">Data Structures • CS201</p>
+
+      <div class="progress-bar">
+        <div class="progress core"></div>
+        <div class="progress elective"></div>
+      </div>
+
+      <div class="legend">
+        <span><i class="icon">🎯</i> Core course</span>
+        <span><i class="icon">⭐</i> Elective course</span>
+      </div>
+
+      <p class="details">
+        <strong>Location:</strong> Building FB200, Room 4<br>
+        <strong>Instructor:</strong> Dr. Ahmed Hassan
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Course Name • Course Code</h3>
+      <p class="course-title">Software Engineering • SE301</p>
+
+      <div class="progress-bar">
+        <div class="progress core"></div>
+        <div class="progress elective"></div>
+      </div>
+
+      <div class="legend">
+        <span><i class="icon">🎯</i> Core course</span>
+        <span><i class="icon">⭐</i> Elective course</span>
+      </div>
+
+      <p class="details">
+        <strong>Location:</strong> Building FB200, Room 4<br>
+        <strong>Instructor:</strong> Dr. Ahmed Hassan
+      </p>
+    </div>
+
+        <div class="card">
+      <h3>Course Name • Course Code</h3>
+      <p class="course-title">Internet of Things • CS105</p>
+
+      <div class="progress-bar">
+        <div class="progress core"></div>
+        <div class="progress elective"></div>
+      </div>
+
+      <div class="legend">
+        <span><i class="icon">🎯</i> Core course</span>
+        <span><i class="icon">⭐</i> Elective course</span>
+      </div>
+
+      <p class="details">
+        <strong>Location:</strong> Building FB200, Room 4<br>
+        <strong>Instructor:</strong> Dr. Ahmed Hassan
+      </p>
+    </div>
+
+    <div class="buttons">
+      <button class="save-btn">Save Plan</button>
+      <a href="Performance.html" class="edit-btn">Edit Plan</a>
+    </div>
+  </div>
+  <script>
+document.addEventListener('DOMContentLoaded', async function() {
+    // 1. تحقق من تسجيل الدخول
+    const studentId = auth.checkLogin();
+    if (!studentId) return;
+    
+    // 2. جلب التوصيات الحقيقية
+    console.log('🔄 Loading recommendations...');
+    const recommendations = await auth.getRecommendations(studentId);
+    
+    console.log('📊 Recommendations:', recommendations);
+    
+    // 3. عرض التوصيات
+    const container = document.querySelector('.container');
+    const cardsContainer = document.createElement('div');
+    cardsContainer.className = 'recommendations-container';
+    
+    recommendations.forEach((course, index) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <h3>${course.course_name} • ${course.course_code}</h3>
+            <p class="course-title">${course.course_name} • ${course.course_code}</p>
+            
+            <div class="progress-bar">
+                <div class="progress ${course.type.includes('core') ? 'core' : 'elective'}" 
+                     style="width: ${course.score * 10}%"></div>
+            </div>
+            
+            <div class="legend">
+                <span><i class="icon">🎯</i> ${course.type || 'Course'}</span>
+                <span><i class="icon">⭐</i> Score: ${course.score.toFixed(1)}</span>
+            </div>
+            
+            <p class="details">
+                <strong>Reason:</strong> ${course.reason}<br>
+                <strong>Location:</strong> ${course.location || 'TBA'}<br>
+                <strong>Instructor:</strong> ${course.instructor || 'TBA'}
+            </p>
+        `;
+        cardsContainer.appendChild(card);
+    });
+    
+    // إضافة الحاوية بعد الهيدر
+    const header = document.querySelector('header');
+    header.insertAdjacentElement('afterend', cardsContainer);
+    
+    // 4. تحديث الأزرار
+    document.querySelector('.save-btn').addEventListener('click', function() {
+        localStorage.setItem('recommendations', JSON.stringify(recommendations));
+        alert('✅ Study plan saved successfully!');
+    });
+});
+</script>
+      function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+  }
+</script>

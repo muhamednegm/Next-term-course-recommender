@@ -1,0 +1,268 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px 0;
+}
+
+/* ===== Container to control width ===== */
+.container {
+  background-color: #f5f6f8;
+ /* width: 380px; /* دي اللي بتخلي الشكل زي الموبايل */
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  padding-bottom: 30px;
+  overflow: hidden;
+  width: 420px;
+}
+
+/* ===== Header ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px 5px 20px;
+}
+
+.header-left h1 {
+  color: #0b2d5c;
+}
+
+.header-left p {
+  font-size: 15px;
+  color: #9a9a9a;
+  margin-top: 2px;
+}
+
+
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
+.menu-icon div {
+  width: 20px;
+  height: 2.3px;
+  background-color: #0b2d5c;
+  margin: 4px 0;
+  border-radius: 2px;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  padding: 0 20px;
+}
+
+.info-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Student Card */
+.student-card {
+  background-color: #0b2d5c;
+  color: white;
+  border-radius: 12px;
+  width: 190px;
+  text-align: center;
+  padding: 10px;
+}
+
+.student-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.student-card h1 {
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.student-card .email {
+  color: #ffb347;
+  font-size: 12px;
+}
+
+/* GPA Card */
+/* GPA Card */
+.gpa-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  flex: 1;
+  text-align: center;
+  width: 210px;
+}
+
+.gpa-card h3,h4 {
+  color: #0b2d5c;
+  font-size: 25px;
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 120px;
+  margin: 10px 0;
+  gap: 21px;
+  margin-right: 10px;
+}
+
+.bar {
+  width: 12px;
+  border-radius: 6px;
+  background-color: #d9d9d9;
+}
+
+.bar1 { height: 60px; background-color: #0b2d5c; }
+.bar2 { height: 80px; background-color: #0b2d5c; }
+.bar3 { height: 100px; background-color: #f39c12; }
+.bar4 { height: 70px; background-color: #0b2d5c; }
+.bar5 { height: 90px; background-color: #0b2d5c; }
+.labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #555;
+}
+
+/* info Boxes */
+.info-boxes {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  margin: 25px 0;
+}
+
+.info {
+  background-color: #0b2d5c;
+  color: white;
+  padding: 15px 10px;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+}
+
+.info span {
+  font-size: 22px;
+  display: block;
+}
+
+.info p {
+  margin: 8px 0 0;
+}
+
+
+
+/* المربع الرئيسي في النص */
+.app-container {
+  width: 420px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: #eef3ff;
+  position: relative; /* مهم جدًا عشان الـ sidebar تبقى جواه */
+  overflow: hidden;   /* عشان المينيو متخرجش برا */
+  color: rgb(40, 40, 40);
+}
+
+/* الأيقونة */
+.menu-icon {
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  color: #0b2042;
+}
+
+/* القائمة الجانبية */
+.sidebar {
+  position: absolute; /* بدل fixed */
+  top: 0;
+  left: -250px; /* مخفية في الأول */
+  width: 250px;
+  height: 100%;
+  background-color: #0b2042;
+  color: white;
+  transition: 0.3s ease;
+  padding-top: 3rem;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+/* لما تتفتح */
+.sidebar.active {
+  left: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.sidebar li {
+  margin: 1rem 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.5rem;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #1c3b72;
+  border-radius: 8px;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: flex-start;   /* ✅ اللوجو يطلع لأعلى */
+  justify-content: space-between;
+  padding: 1rem 1.2rem 0 1.2rem; /* padding علوي بسيط */
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.college-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-top: -5px;  /* ✅ يرفع اللوجو شوية فوق */
+}
+
+.close-btn {
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+}

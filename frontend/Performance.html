@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance Overview</title>
+  <link rel="stylesheet" href="performance.css">
+  <link rel="icon" type="image/x.icon" href="logo.jpg">
+
+</head>
+<body>
+  <script src="auth.js"></script>
+  <!-- Main Container -->
+  <main class="container">
+
+      <!-- Sidebar -->
+  <nav class="sidebar">
+    <img src="logo.jpg" alt="College Logo" class="college-logo">
+     <ul>
+      <li><a href="performance.html"> 📈 </a></li>
+      <li><a href="student.html"> 🎓 </a></li>
+      <li><a href="recommended.html"> ⭐ </a></li>
+      <li><a href="settings.html"> ⚙️ </a></li>
+    </ul>
+  </nav>
+
+    <header class="top-header">
+      <h2>Performance Overview</h2>
+      <div class="icons">
+        <i class="menu-icon">☰</i>
+        <i class="search-icon">🔍</i>
+      </div>
+    </header>
+
+    <!-- Chart Section -->
+    <section class="chart-section">
+      <div class="chart-card">
+        <canvas id="performanceChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filter-section">
+      <p>Filter by: [Semester ▼] [Year ▼] View: [Performance Chart ▼] 
+        <span class="apply" onclick="updateData()">[Apply Filters]</span>
+      </p>
+    </section>
+
+    <!-- Table Section -->
+    <section class="table-section">
+      <table>
+        <thead>
+          <tr>
+            <th>Subject Performance</th>
+            <th>Grade</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="circle green"></span> Data Structures</td><td>A</td><td>Excellent</td></tr>
+          <tr><td><span class="circle green"></span> Algorithms</td><td>B+</td><td>Very Good</td></tr>
+          <tr><td><span class="circle orange"></span> Machine Learning</td><td>B</td><td>Good</td></tr>
+          <tr><td><span class="circle red"></span> Database Systems</td><td>C+</td><td>Needs Improvement</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Recommendation Card -->
+    <section class="recommendation-card">
+      <h3>Generate Recommendations</h3>
+      <p>Based on your performance data, we recommend focusing on advanced programming and AI-related courses next term.</p>
+      <button class="generate-btn">Generate ↻</button>
+    </section>
+
+  </main>
+
+  <!-- Chart JS -->
+  <script>
+    // رسم الرسم البياني
+    const canvas = document.getElementById('performanceChart');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 360;
+    canvas.height = 200;
+
+    // بيانات مبدأية
+    let semesters = ['S1', 'S2', 'S3', 'S4'];
+    let gpaData = [2.5, 3.0, 3.5, 3.8];
+
+    function drawChart() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      const chartHeight = 150;
+      const chartWidth = canvas.width - 60;
+      const maxGPA = 4.0;
+      const barWidth = 40;
+      const gap = 30;
+      const startX = 40;
+      const startY = 180;
+
+      // محاور
+      ctx.strokeStyle = "#ccc";
+      ctx.beginPath();
+      ctx.moveTo(startX, startY);
+      ctx.lineTo(startX + chartWidth, startY);
+      ctx.stroke();
+
+      // رسم الأعمدة
+      gpaData.forEach((value, i) => {
+        const barHeight = (value / maxGPA) * chartHeight;
+        const x = startX + i * (barWidth + gap);
+        const y = startY - barHeight;
+
+        ctx.fillStyle = "#f8c078";
+        ctx.fillRect(x, y, barWidth, barHeight);
+
+        // النص تحت العمود
+        ctx.fillStyle = "#000";
+        ctx.font = "12px system-ui";
+        ctx.textAlign = "center";
+        ctx.fillText(semesters[i], x + barWidth / 2, startY + 15);
+
+        // النقطة الخاصة بالخط
+        ctx.beginPath();
+        ctx.arc(x + barWidth / 2, y, 3, 0, 2 * Math.PI);
+        ctx.fillStyle = "#2a5af9";
+        ctx.fill();
+      });
+
+      // رسم الخط
+      ctx.beginPath();
+      ctx.moveTo(startX + barWidth / 2, startY - (gpaData[0] / maxGPA) * chartHeight);
+      ctx.strokeStyle = "#2a5af9";
+      for (let i = 1; i < gpaData.length; i++) {
+        const x = startX + i * (barWidth + gap) + barWidth / 2;
+        const y = startY - (gpaData[i] / maxGPA) * chartHeight;
+        ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+    }
+
+    drawChart();
+
+    // دالة لتحديث البيانات
+    function updateData() {
+      gpaData = gpaData.map(() => (Math.random() * 4).toFixed(2));
+      drawChart();
+    }
+  </script>
+  <script>
+  // 1. تحقق من تسجيل الدخول
+  const studentId = auth.checkLogin();
+  if (!studentId) return;
+  
+  // 2. تحميل بيانات الطالب
+  auth.getStudentData(studentId).then(student => {
+    // تحديث العنوان
+    const header = document.querySelector('.top-header h2');
+    if (header) {
+      header.textContent = `Performance Overview - ${student.name}`;
+    }
+  });
+  
+  // 3. زر Generate Recommendations
+  document.querySelector('.generate-btn')?.addEventListener('click', function() {
+    window.location.href = 'Recommended.html';
+  });
+  </script>
+  <script>
+document.addEventListener('DOMContentLoaded', async function() {
+    // 1. تحقق من تسجيل الدخول
+    const studentId = auth.checkLogin();
+    if (!studentId) return;
+    
+    // 2. تحديث العنوان ببيانات الطالب
+    auth.getStudentData(studentId).then(student => {
+        const header = document.querySelector('.top-header h2');
+        if (header) {
+            header.textContent = `Performance Overview - ${student.name}`;
+        }
+    });
+    
+    // 3. زر Generate Recommendations
+    document.querySelector('.generate-btn').addEventListener('click', function() {
+        console.log('Redirecting to recommendations...');
+        window.location.href = 'recommended.html';
+    });
+});
+</script>
+
+</body>
+</html>

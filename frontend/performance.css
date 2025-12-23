@@ -1,0 +1,186 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: absolute;
+  width: 60px;
+  height: 100vh;
+  background-color: #11294d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+}
+
+.sidebar li {
+  margin: 1rem 0;
+}
+
+.sidebar a {
+  text-decoration: none;
+  font-size: 20px;
+  padding: 0.6rem 1.5rem;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #1c3b72;
+  width: 10px;
+}
+
+.profile-circle {
+  width: 40px;           /* حجم الصورة */
+  height: 40px;
+  border-radius: 50%;    /* تخليها دايرة */
+  object-fit: cover;     /* تخلي الصورة تتظبط جوه الدايرة */
+  border: 2px solid #ccc; /* خط بسيط حواليها (اختياري) */
+}
+
+/* اللوجو */
+.college-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%; /* لو اللوجو دايرة */
+}
+
+.container {
+  background: #f5f6f8;
+  width: 420px;
+  position: relative;
+  margin: 30px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  z-index: 1;
+  align-items: center;
+}
+
+.top-header {
+  background-color: #11294d;
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 50px;
+}
+
+.top-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.icons i {
+  margin-left: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.chart-section {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-left: 50px;
+
+}
+
+#performanceChart {
+  width: 100%;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.filter-section {
+  padding: 10px 20px;
+  font-size: 0.85rem;
+  color: #444;
+  margin-left: 50px;
+
+}
+
+.filter-section .apply {
+  color: #0045ff;
+  cursor: pointer;
+}
+
+.table-section {
+  padding: 10px 20px;
+  margin-left: 50px;
+
+}
+
+.table-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-section th {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #000;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.table-section td {
+  padding: 10px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eee;
+}
+
+.circle {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.green { background-color: #00b871; }
+.orange { background-color: #f4a63a; }
+.red { background-color: #e24d4d; }
+
+.recommendation-card {
+  background-color: #11294d;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 15px;
+  text-align: left;
+  margin-left: 50px;
+
+}
+
+.recommendation-card h3 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.generate-btn {
+  background-color: white;
+  color: #11294d;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <link rel="stylesheet" href="settings.css">
+  <link rel="icon" type="image/x.icon" href="logo.jpg">
+  <script src="auth.js"></script>
+</head>
+<body>
+
+<div class="app-container">
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="logo.jpg" alt="College Logo" class="college-logo">
+      <div class="close-btn" onclick="toggleMenu()">✕</div>
+    </div>
+
+    <ul>
+      <li><a href="performance.html">📈 Performance</a></li>
+      <li><a href="student.html">🎓 Student</a></li>
+      <li><a href="recommended.html">⭐ Recommended</a></li>
+      <li><a href="settings.html">⚙️ Settings</a></li>
+      <li><a href="#" onclick="window.auth.logout()">🚪 Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="phone-container">
+    <header class="header">
+      <h1>Settings</h1>
+      <p>Update your personal information and <br>dashboard preferences</p>
+    </header>
+
+    <main class="container">
+      <section class="profile-card">
+        <div class="profile-info">
+          <img src="img4.jpg" alt="Profile Picture" class="profile-circle">
+          <div class="info">
+            <h2 id="realStudentName">Loading...</h2>
+            <p class="email" id="realStudentEmail">Loading...</p>
+          </div>
+          <button class="save-btn">Save</button>
+        </div>
+
+        <div class="details">
+          <p id="realStudentDetails">Loading student data...</p>
+          <p id="realStudentMajor">Loading...</p>
+        </div>
+      </section>
+
+      <section class="preferences">
+        <h3>Preferences</h3>
+        <p class="semester" id="realCurrentSemester"><strong>Current Semester:</strong> Loading...</p>
+
+        <div class="cards-grid">
+          <div class="card purple">
+            <h4>📧 Email</h4>
+            <p>Designed communication options for better collaboration</p>
+          </div>
+          <div class="card yellow">
+            <h4>🔔 Notifications</h4>
+            <p>Customize how you receive updates</p>
+          </div>
+          <div class="card red">
+            <h4>🧩 Profile Features</h4>
+            <p>Manage visibility and personal info</p>
+          </div>
+          <div class="card blue">
+            <h4>📈 Performance</h4>
+            <p>Enable tracking and analytics</p>
+          </div>
+          <div class="card orange">
+            <h4>🧱 Widgets</h4>
+            <p>Dashboard customization tools</p>
+          </div>
+          <div class="card light-yellow">
+            <h4>⚙️ Notification Settings</h4>
+            <p>Control frequency and alert type</p>
+          </div>
+        </div>
+
+        <p class="footer-text">
+          Change your personal settings for <br> communication and notifications.<br>
+          Click below to apply changes.
+        </p>
+
+        <button class="start-btn">Start Card</button>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+
+    document.querySelector('.save-btn').addEventListener('click', () => {
+      alert('Profile saved successfully!');
+    });
+
+    document.querySelector('.start-btn').addEventListener('click', () => {
+      alert('Changes applied successfully!');
+    });
+
+    // جلب البيانات الحقيقية
+    document.addEventListener('DOMContentLoaded', async function() {
+      // 1. التحقق من تسجيل الدخول
+      const studentId = window.auth.checkLogin();
+      if (!studentId) return;
+      
+      console.log('🔄 Loading student data for:', studentId);
+      
+      // 2. جلب البيانات من localStorage (تم حفظها في index.html)
+      const studentName = localStorage.getItem('student_name') || 'Student';
+      const studentMajor = localStorage.getItem('student_major') || 'Computer Science';
+      const studentGPA = localStorage.getItem('student_gpa') || '3.5';
+      const studentLevel = localStorage.getItem('selected_level') || '3';
+      
+      console.log('📋 Student data from localStorage:', {
+        name: studentName,
+        major: studentMajor,
+        gpa: studentGPA,
+        level: studentLevel
+      });
+      
+      // 3. تحديث البيانات في الصفحة
+      
+      // الاسم
+      const nameElement = document.querySelector('.profile-info h2');
+      if (nameElement) {
+        nameElement.textContent = studentName;
+      }
+      
+      // البريد الإلكتروني
+      const emailElement = document.querySelector('.profile-info .email');
+      if (emailElement) {
+        emailElement.textContent = `${studentId.toLowerCase()}@university.edu`;
+      }
+      
+      // التفاصيل
+      const detailsElement = document.querySelector('.details p:first-child');
+      if (detailsElement) {
+        detailsElement.innerHTML = `<strong>ID:</strong> ${studentId}<br>
+        <strong>GPA:</strong> ${studentGPA}`;
+      }
+      
+      // التخصص والمستوى
+      const roleElement = document.querySelector('.details p:last-child');
+      if (roleElement) {
+        roleElement.textContent = `${studentMajor}, Level ${studentLevel}`;
+      }
+      
+      // الفصل الدراسي الحالي
+      const semesterElement = document.querySelector('.semester');
+      if (semesterElement) {
+        const semesterNumber = parseInt(studentLevel) * 2;
+        semesterElement.innerHTML = `<strong>Current Semester:</strong> Semester ${semesterNumber}`;
+      }
+      
+      console.log('✅ Settings page updated with real data');
+    });
+  </script>
+</body>
+</html>

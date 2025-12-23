@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile</title>
+  <link rel="stylesheet" href="student.css">
+  <link rel="icon" type="image/x.icon" href="logo.jpg">
+  <script src="auth.js"></script>
+</head>
+<body>
+
+<div class="app-container">
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="logo.jpg" alt="College Logo" class="college-logo">
+      <div class="close-btn" onclick="toggleMenu()">✕</div>
+    </div>
+
+    <ul>
+      <li><a href="performance.html">📈 Performance</a></li>
+      <li><a href="student.html">🎓 Student</a></li>
+      <li><a href="recommended.html">⭐ Recommended</a></li>
+      <li><a href="settings.html">⚙️ Settings</a></li>
+      <li><a href="#" onclick="window.auth.logout()">🚪 Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <div class="header-left">
+        <img src="img4.jpg" alt="Student" class="profile-pic">
+        <h1>Student Profile</h1>
+        <p id="profileDesc">view of student details <br> and academic performance</p>
+      </div>
+    </header>
+
+    <section class="main-content">
+      <div class="info-section">
+        <div class="student-card">
+          <img src="img4.jpg" class="student-img" alt="Student Photo">
+          <h3 id="realName">Loading...</h3>
+          <p class="id" id="realId">ID : Loading...</p>
+          <h1 id="realGPA">0.0</h1>
+          <p class="major" id="realMajor">Loading...</p>
+          <p class="email" id="realEmail">Loading...</p>
+        </div>
+
+        <div class="gpa-card">
+          <h3>GPA:</h3>
+          <h4 id="realGPAValue">0.0</h4>
+          <p id="realCredits">0/120</p>
+          <div class="chart">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+            <div class="bar bar4"></div>
+            <div class="bar bar5"></div>
+          </div>
+          <div class="labels">
+            <span>sem1</span>
+            <span>sem2</span>
+            <span>sem3</span>
+            <span>sem4</span>
+            <span>sem5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-boxes">
+        <div class="info blue">
+          <span>✅</span>
+          <p id="realCompleted">0/120</p>
+        </div>
+        <div class="info blue">
+          <span>📍</span>
+          <p id="realSemester">Loading...</p>
+        </div>
+        <div class="info blue">
+          <span>🔔</span>
+          <p id="realAttendance">Loading...</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+
+    // جلب البيانات الحقيقية
+    document.addEventListener('DOMContentLoaded', async function() {
+      // 1. التحقق من تسجيل الدخول
+      const studentId = window.auth.checkLogin();
+      if (!studentId) return;
+      
+      console.log('🔄 Loading student data for:', studentId);
+      
+      // 2. جلب البيانات من localStorage (تم حفظها في index.html)
+      const studentName = localStorage.getItem('student_name') || 'Student';
+      const studentMajor = localStorage.getItem('student_major') || 'Computer Science';
+      const studentGPA = localStorage.getItem('student_gpa') || '3.5';
+      const studentLevel = localStorage.getItem('selected_level') || '3';
+      
+      console.log('📋 Student data from localStorage:', {
+        name: studentName,
+        major: studentMajor,
+        gpa: studentGPA,
+        level: studentLevel
+      });
+      
+      // 3. تحديث كل البيانات في الصفحة
+      
+      // الاسم
+      document.querySelector('.student-card h3').textContent = studentName;
+      
+      // الـ ID
+      document.querySelector('.student-card .id').textContent = `ID: ${studentId}`;
+      
+      // الـ GPA (في المربع الأزرق الكبير)
+      document.querySelector('.student-card h1').textContent = studentGPA;
+      
+      // التخصص
+      document.querySelector('.student-card .major').textContent = studentMajor;
+      
+      // البريد الإلكتروني
+      document.querySelector('.student-card .email').textContent = `${studentId.toLowerCase()}@university.edu`;
+      
+      // الـ GPA في المربع الأبيض
+      document.querySelector('.gpa-card h4').textContent = studentGPA;
+      
+      // حساب الاعتمادات بناءً على المستوى
+      const level = parseInt(studentLevel) || 3;
+      const totalCredits = Math.min(level * 35, 120);
+      document.querySelector('.gpa-card p').textContent = `${totalCredits}/120`;
+      
+      // المعلومات الإضافية
+      const infoBoxes = document.querySelectorAll('.info p');
+      if (infoBoxes.length >= 3) {
+        // الاعتمادات المكتملة
+        const completedCredits = Math.min(level * 30, 110);
+        infoBoxes[0].textContent = `${completedCredits}/120`;
+        
+        // الفصل الدراسي
+        const year = 2025;
+        const semester = level % 2 === 1 ? 'Fall' : 'Spring';
+        infoBoxes[1].textContent = `${semester} ${year}`;
+        
+        // الحضور
+        const gpaValue = parseFloat(studentGPA) || 0;
+        const attendanceRate = Math.min(85 + (gpaValue * 5), 98);
+        infoBoxes[2].innerHTML = `Attendance:<br> ${attendanceRate.toFixed(1)}%`;
+      }
+      
+      // تحديث وصف الملف الشخصي
+      document.querySelector('.header-left p').innerHTML = 
+        `${studentName}'s details <br> and academic performance`;
+      
+      console.log('✅ Student page updated with real data');
+      
+      // تحديث الرسم البياني
+      updateGPAChart(parseFloat(studentGPA) || 0);
+    });
+
+    // دالة لتحديث الرسم البياني
+    function updateGPAChart(gpa) {
+      const bars = document.querySelectorAll('.bar');
+      if (!bars.length) return;
+      
+      const heights = [];
+      for (let i = 0; i < 5; i++) {
+        const semesterGPA = Math.min(gpa + (Math.random() * 0.5 - 0.25), 4.0);
+        const height = 40 + (semesterGPA * 15);
+        heights.push(height);
+      }
+      
+      bars.forEach((bar, index) => {
+        if (index < heights.length) {
+          bar.style.height = `${heights[index]}%`;
+          if (index === 2) {
+            bar.style.backgroundColor = '#f39c12';
+          } else {
+            bar.style.backgroundColor = '#0b2d5c';
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
